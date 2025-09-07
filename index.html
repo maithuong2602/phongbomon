@@ -179,11 +179,7 @@
     <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 no-print"><div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-sm mx-4"><h3 class="text-lg font-bold text-gray-800 mb-4">Xác nhận thao tác</h3><p id="confirmModalMessage" class="text-gray-600 mb-6"></p><div class="flex justify-end space-x-3"><button id="confirmModalCancel" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">Hủy</button><button id="confirmModalOk" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Đồng ý</button></div></div></div>
     <div id="notificationToast" class="fixed bottom-5 right-5 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 z-50 no-print"><p id="notificationMessage"></p></div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
+    <script>
         // --- DATA & CONFIG ---
         const lessonsByGrade = { 6: ["Bài 1. Thông tin và dữ liệu", "Bài 2. Xử lí thông tin", "Bài 3. Thông tin trong máy tính", "Bài 4. Mạng máy tính", "Bài 5. Internet", "Bài 6. Mạng thông tin toàn cầu", "Bài 7. Tìm kiếm thông tin trên Internet", "Bài 8. Thư điện tử", "Bài 9. An toàn thông tin trên Internet", "Bài 10. Sơ đồ tư duy", "Bài 11. Định dạng văn bản", "Bài 12. Trình bày thông tin ở dạng bảng", "Bài 13. Thực hành: Tìm kiếm và thay thế", "Bài 14. Thực hành tổng hợp: Hoàn thiện sổ lưu niệm", "Bài 15. Thuật toán", "Bài 16. Các cấu trúc điều khiển", "Bài 17. Chương trình máy tính"], 7: ["Bài 1: Thiết bị vào - ra", "Bài 2: Phần mềm máy tính", "Bài 3: Quản lí dữ liệu trong máy tính", "Bài 4: Mạng xã hội và một số kênh trao đổi thông tin trên Internet", "Bài 5: Ứng xử trên mạng", "Bài 6: Làm quen với phần mềm bảng tính", "Bài 7: Tính toán tự động trên bảng tính", "Bài 8: Công cụ hỗ trợ tính toán", "Bài 9: Trình bày bảng tính", "Bài 10: Hoàn thiện bảng tính", "Bài 11: Tạo bài trình chiếu", "Bài 12: Định dạng đối tượng trên trang chiếu", "Bài 13: Thực hành tổng hợp: Hoàn thiện bài trình chiếu", "Bài 14: Thuật toán tìm kiếm tuần tự", "Bài 15: Thuật toán tìm kiếm nhị phân", "Bài 16: Thuật toán sắp xếp"], 8: ["Bài 1: Lược sử công cụ tính toán", "Bài 2: Thông tin trong môi trường số", "Bài 3: Thực hành: Khai thác thông tin số", "Bài 4: Đạo đức và văn hóa trong sử dụng công nghệ kĩ thuật số", "Bài 5: Sử dụng bảng tính giải quyết bài toán thực tế", "Bài 6: Sắp xếp và lọc dữ liệu", "Bài 7: Trình bày dữ liệu bằng biểu đồ", "Bài 8a: Làm việc với danh sách dạng liệt kê và hình ảnh trong văn bản", "Bài 8b: Phần mềm chỉnh sửa ảnh", "Bài 9a: Tạo đầu trang, chân trang cho văn bản", "Bài 9b: Thay đổi khung hình, kích thước ảnh", "Bài 10a: Định dạng nâng cao cho trang chiếu", "Bài 10b: Thêm văn bản, tạo hiệu ứng cho ảnh", "Bài 11a: Sử dụng văn bản mẫu tạo bài trình chiếu", "Bài 11b: Thực hành tổng hợp", "Bài 12: Từ thuật toán đến chương trình", "Bài 13: Biểu diễn dữ liệu", "Bài 14: Cấu trúc điều khiển", "Bài 15: Gỡ lỗi", "Bài 16: Tin học với nghề nghiệp"], 9: ["Bài 1. Thế giới kĩ thuật số", "Bài 2. Thông tin trong giải quyết vấn đề", "Bài 3. Thực hành: Đánh giá chất lượng thông tin", "Bài 4. Một số vấn đề pháp lí về sử dụng dịch vụ Internet", "Bài 5. Tìm hiểu phần mềm mô phỏng", "Bài 6. Thực hành: Khai thác phần mềm mô phỏng", "Bài 7. Trình bày thông tin trong trao đổi và hợp tác", "Bài 8. Thực hành: Sử dụng công cụ trực quan trình bày thông tin trong trao đổi và hợp tác", "Bài 9a. Sử dụng công cụ xác thực dữ liệu", "Bài 10a. Sử dụng hàm COUNTIF", "Bài 11a. Sử dụng hàm SUMIF", "Bài 12a. Sử dụng hàm IF", "Bài 13a. Hoàn thiện bảng tính quản lí tài chính gia đình", "Bài 9b. Các chức năng chính của phần mềm làm video", "Bài 10b. Chuẩn bị dữ liệu và dựng video", "Bài 11b. Thực hành: Dựng video theo kịch bản", "Bài 12b. Hoàn thành việc dựng video", "Bài 13b. Biên tập và xuất video", "Bài 14. Giải quyết vấn đề", "Bài 15. Bài toán tin học", "Bài 16. Thực hành: Lập chương trình máy tính", "Bài 17. Tin học và thế giới nghề nghiệp"] };
         const classListByGrade = { 6: ["6/1", "6/2", "6/3", "6/4"], 7: ["7/1", "7/2", "7/3", "7/4", "7/5"], 8: ["8/1", "8/2", "8/3", "8/4", "8/5"], 9: ["9/1", "9/2", "9/3", "9/4", "9/5"] };
@@ -193,27 +189,20 @@
         let teachingSessions = {};
         let monthlyPlans = {};
         let confirmCallback = null;
-        let db;
 
-        // --- DATA HANDLING (FIRESTORE) ---
-        async function saveDataToFirestore() {
-            if (!db) return;
-            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-            const schedulesDocRef = doc(db, `/artifacts/${appId}/public/data/schedules`, 'allSchedules');
-            const plansDocRef = doc(db, `/artifacts/${appId}/public/data/plans`, 'allPlans');
-            try {
-                await setDoc(schedulesDocRef, teachingSessions);
-                await setDoc(plansDocRef, monthlyPlans);
-            } catch (error) {
-                console.error("Error saving data to Firestore: ", error);
-            }
+        // --- DATA HANDLING (LOCALSTORAGE) ---
+        function saveDataToLocalStorage() {
+            localStorage.setItem('teachingSessionsData_v4', JSON.stringify(teachingSessions));
+            localStorage.setItem('monthlyPlansData_v4', JSON.stringify(monthlyPlans));
         }
 
-        function loadDefaultData() {
-             teachingSessions = { 0: { 'mon-1': { class: '6/2', grade: '6', title: 'Bài 1. Thông tin và dữ liệu', teacher: 'Lê Thị Mai Thương', ppct: 1, itUsage: true }, 'tue-2': { class: '7/1', grade: '7', title: 'Bài 1: Thiết bị vào - ra', teacher: 'Lê Thị Mai Thương', ppct: 1, itUsage: true }, 'wed-3': { class: '6/1', grade: '6', title: 'Bài 1. Thông tin và dữ liệu', teacher: 'Phạm Thị Ánh Thảo', ppct: 1, itUsage: true },}};
+        function loadDataFromLocalStorage() {
+            const savedSessions = localStorage.getItem('teachingSessionsData_v4');
+            const savedPlans = localStorage.getItem('monthlyPlansData_v4');
+            teachingSessions = savedSessions ? JSON.parse(savedSessions) : { 0: { 'mon-1': { class: '6/2', grade: '6', title: 'Bài 1. Thông tin và dữ liệu', teacher: 'Lê Thị Mai Thương', ppct: 1, itUsage: true }, 'tue-2': { class: '7/1', grade: '7', title: 'Bài 1: Thiết bị vào - ra', teacher: 'Lê Thị Mai Thương', ppct: 1, itUsage: true }, 'wed-3': { class: '6/1', grade: '6', title: 'Bài 1. Thông tin và dữ liệu', teacher: 'Phạm Thị Ánh Thảo', ppct: 1, itUsage: true },}};
+            monthlyPlans = savedPlans ? JSON.parse(savedPlans) : {};
         }
         
-        // --- NAVIGATION & UI ---
         function showTab(tabId) {
             ['scheduleSection', 'planSection', 'reportsSection'].forEach(id => document.getElementById(id).classList.add('hidden'));
             document.getElementById(tabId).classList.remove('hidden');
@@ -309,7 +298,7 @@
 
         function closeLessonModal() { document.getElementById('lessonModal').classList.add('hidden'); document.getElementById('lessonModal').classList.remove('flex'); selectedCell = null; };
         
-        async function saveLesson() {
+        function saveLesson() {
             if (!selectedCell) return;
             const cellKey = `${selectedCell.day}-${selectedCell.period}`;
             const formData = { grade: document.getElementById('gradeSelect').value, class: document.getElementById('classInput').value, title: document.getElementById('lessonTitle').value, ppct: document.getElementById('ppctInput').value, teacher: document.getElementById('teacherSelect').value, itUsage: document.getElementById('itUsageCheckbox').checked };
@@ -319,12 +308,12 @@
             }
             if (!teachingSessions[currentWeekIndex]) teachingSessions[currentWeekIndex] = {};
             teachingSessions[currentWeekIndex][cellKey] = formData;
-            await saveDataToFirestore();
+            saveDataToLocalStorage();
             initializeSchedule();
             closeLessonModal();
         }
 
-        async function deleteLesson() { if (!selectedCell) return; const k = `${selectedCell.day}-${selectedCell.period}`; if (teachingSessions[currentWeekIndex] && teachingSessions[currentWeekIndex][k]) { delete teachingSessions[currentWeekIndex][k]; await saveDataToFirestore(); initializeSchedule(); } closeLessonModal(); };
+        function deleteLesson() { if (!selectedCell) return; const k = `${selectedCell.day}-${selectedCell.period}`; if (teachingSessions[currentWeekIndex] && teachingSessions[currentWeekIndex][k]) { delete teachingSessions[currentWeekIndex][k]; saveDataToLocalStorage(); initializeSchedule(); } closeLessonModal(); };
 
         function copyPreviousLesson() {
             if (!selectedCell) return;
@@ -371,7 +360,7 @@
             const sourceData = teachingSessions[sourceWeekIndex];
             if (!sourceData || Object.keys(sourceData).length === 0) { showNotification(`Không có dữ liệu ở Tuần ${sourceWeekIndex + 1} để sao chép.`); return; }
             const message = `Thao tác này sẽ GHI ĐÈ TKB của tuần ${weekNumber} với dữ liệu từ tuần ${sourceWeekIndex + 1}, đồng thời tự động tăng PPCT và Bài dạy cho mỗi lớp. Bạn có chắc chắn?`;
-            showConfirmation(message, async () => {
+            showConfirmation(message, () => {
                 const newWeekData = {};
                 const findLastLessonForClass = (className, maxWeekIndex) => { let lastLesson = null, maxAbsoluteValue = -1; const dayOrder = { 'mon': 1, 'tue': 2, 'wed': 3, 'thu': 4, 'fri': 5, 'sat': 6 }; for (let i = 0; i <= maxWeekIndex; i++) { const weekData = teachingSessions[i]; if (!weekData) continue; for (const key in weekData) { const session = weekData[key]; if (session.class === className) { const [day, period] = key.split('-'); const absoluteValue = (i * 1000) + (dayOrder[day] * 100) + parseInt(period); if (absoluteValue > maxAbsoluteValue) { maxAbsoluteValue = absoluteValue; lastLesson = session; } } } } return lastLesson; };
                 const lessonsByClass = {};
@@ -390,7 +379,7 @@
                     for (const item of sortedLessons) { ppctCounter++; newWeekData[item.key] = { ...item.lesson, ppct: ppctCounter, title: newTitleForThisWeek }; }
                 }
                 teachingSessions[currentWeekIndex] = newWeekData;
-                await saveDataToFirestore();
+                saveDataToLocalStorage();
                 initializeSchedule();
                 showNotification(`Đã sao chép và cập nhật TKB từ tuần ${sourceWeekIndex + 1}.`);
             });
@@ -422,19 +411,17 @@
             document.querySelectorAll('.plan-input').forEach(input => input.addEventListener('input', savePlanData));
         }
 
-        async function savePlanData() {
+        function savePlanData() {
             const planPeriod = document.getElementById('planPeriod').value;
             if (!monthlyPlans[planPeriod]) monthlyPlans[planPeriod] = { part1: '', weeks: {} };
             monthlyPlans[planPeriod].part1 = document.getElementById('planPart1').value;
             document.querySelectorAll('#planDetailTable textarea').forEach(textarea => { const weekKey = textarea.dataset.week, field = textarea.dataset.field; if (!monthlyPlans[planPeriod].weeks[weekKey]) monthlyPlans[planPeriod].weeks[weekKey] = {}; monthlyPlans[planPeriod].weeks[weekKey][field] = textarea.value; });
-            await saveDataToFirestore();
+            saveDataToLocalStorage();
         }
 
         function formatContentAsParagraphs(content) {
             return content.split('\n').filter(line => line.trim() !== '').map(line => `<p style="text-align: justify; line-height: 1.5; margin: 0; padding: 0;">${line}</p>`).join('');
         }
-        
-        function formatContentWithBullets(content) { return '<ul>' + content.split('\n').filter(line => line.trim() !== '').map(line => `<li style="text-align: justify; line-height: 1.5;">${line.trim()}</li>`).join('') + '</ul>'; }
 
         function exportPlanToWord() {
             const planPeriod = document.getElementById('planPeriod').value;
@@ -464,6 +451,10 @@
         }
         
         // --- REPORT FUNCTIONS ---
+        function formatContentWithBulletsForReport(content) {
+            return '<ul>' + content.split('\n').filter(line => line.trim() !== '').map(line => `<li style="text-align: justify; line-height: 1.5;">${line.trim()}</li>`).join('') + '</ul>';
+        }
+        
         function collectReportData(year, month) {
             const reportStats = {};
             const dayOffsets = { mon: 0, tue: 1, wed: 2, thu: 3, fri: 4, sat: 5 };
@@ -509,44 +500,9 @@
             saveAs(htmlDocx.asBlob(fullHtml), `Bao-cao-thang-${month}-${year}.docx`);
         }
         
-        document.addEventListener('DOMContentLoaded', async function() {
-            // Firebase Init
-            const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-            const app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            const auth = getAuth(app);
-
-            // Auth
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (error) {
-                console.error("Authentication Error:", error);
-            }
-            
-            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-            const schedulesDocPath = `/artifacts/${appId}/public/data/schedules/allSchedules`;
-            const plansDocPath = `/artifacts/${appId}/public/data/plans/allPlans`;
-
-            // Real-time listener for schedules
-            onSnapshot(doc(db, schedulesDocPath), (doc) => {
-                if (doc.exists()) {
-                    teachingSessions = doc.data();
-                } else {
-                    loadDefaultData(); 
-                }
-                updateWeekDisplay(); // Re-render the UI
-            });
-
-             // Real-time listener for plans
-            onSnapshot(doc(db, plansDocPath), (doc) => {
-                monthlyPlans = doc.exists() ? doc.data() : {};
-            });
-
-
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDataFromLocalStorage();
+            updateWeekDisplay();
             updateLessons();
             updateClassList();
             document.getElementById('scheduleTab').addEventListener('click', () => showTab('scheduleSection'));
