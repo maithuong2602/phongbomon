@@ -202,7 +202,48 @@
         function loadDataFromLocalStorage() {
             const savedSessions = localStorage.getItem('teachingSessionsData_v4');
             const savedPlans = localStorage.getItem('monthlyPlansData_v4');
-            teachingSessions = savedSessions ? JSON.parse(savedSessions) : { 0: { 'mon-1': { class: '6/2', grade: '6', title: 'Bài 1. Thông tin và dữ liệu', teacher: 'Lê Thị Mai Thương', ppct: 1, itUsage: true }, 'tue-2': { class: '7/1', grade: '7', title: 'Bài 1: Thiết bị vào - ra', teacher: 'Lê Thị Mai Thương', ppct: 1, itUsage: true }, 'wed-3': { class: '6/1', grade: '6', title: 'Bài 1. Thông tin và dữ liệu', teacher: 'Phạm Thị Ánh Thảo', ppct: 1, itUsage: true },}};
+            teachingSessions = savedSessions ? JSON.parse(savedSessions) : {
+                "0": {
+                    "tue-3": { "grade": "6", "class": "6/2", "title": "Bài 1. Thông tin và dữ liệu", "ppct": "1", "teacher": "Nguyễn Thị Thanh Tuyền", "itUsage": false },
+                    "tue-4": { "grade": "6", "class": "6/2", "title": "Bài 1. Thông tin và dữ liệu", "ppct": "2", "teacher": "Nguyễn Thị Thanh Tuyền", "itUsage": false },
+                    "thu-1": { "grade": "8", "class": "8/4", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Võ Lê Bảo Trân", "itUsage": true },
+                    "thu-2": { "grade": "8", "class": "8/4", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Võ Lê Bảo Trân", "itUsage": true },
+                    "thu-3": { "grade": "8", "class": "8/1", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-4": { "grade": "8", "class": "8/1", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-6": { "grade": "9", "class": "9/4", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-7": { "grade": "9", "class": "9/4", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-1": { "grade": "8", "class": "8/4", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-2": { "grade": "8", "class": "8/4", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-6": { "grade": "9", "class": "9/1", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-7": { "grade": "9", "class": "9/1", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-8": { "grade": "7", "class": "7/2", "title": "Bài 1: Thiết bị vào - ra", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-9": { "grade": "7", "class": "7/2", "title": "Bài 1: Thiết bị vào - ra", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "sat-6": { "grade": "9", "class": "9/3", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "sat-7": { "grade": "9", "class": "9/3", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true }
+                },
+                "1": {
+                    "tue-3": { "grade": "6", "class": "6/1", "title": "Bài 1. Thông tin và dữ liệu", "ppct": "1", "teacher": "Nguyễn Thị Thanh Tuyền", "itUsage": true },
+                    "tue-4": { "grade": "6", "class": "6/1", "title": "Bài 1. Thông tin và dữ liệu", "ppct": "2", "teacher": "Nguyễn Thị Thanh Tuyền", "itUsage": true },
+                    "thu-1": { "grade": "8", "class": "8/3", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Võ Lê Bảo Trân", "itUsage": true },
+                    "thu-2": { "grade": "8", "class": "8/3", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Võ Lê Bảo Trân", "itUsage": true },
+                    "thu-3": { "grade": "8", "class": "8/2", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-4": { "grade": "8", "class": "8/2", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-6": { "grade": "9", "class": "9/2", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-7": { "grade": "9", "class": "9/2", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-8": { "grade": "7", "class": "7/4", "title": "Bài 1: Thiết bị vào - ra", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "thu-9": { "grade": "7", "class": "7/4", "title": "Bài 1: Thiết bị vào - ra", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-1": { "grade": "8", "class": "8/5", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-2": { "grade": "8", "class": "8/5", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-3": { "grade": "8", "class": "8/3", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-4": { "grade": "8", "class": "8/3", "title": "Bài 1: Lược sử công cụ tính toán", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-6": { "grade": "9", "class": "9/5", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-7": { "grade": "9", "class": "9/5", "title": "Bài 1. Thế giới kĩ thuật số", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-8": { "grade": "7", "class": "7/3", "title": "Bài 1: Thiết bị vào - ra", "ppct": "1", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "fri-9": { "grade": "7", "class": "7/3", "title": "Bài 1: Thiết bị vào - ra", "ppct": "2", "teacher": "Lê Thị Mai Thương", "itUsage": true },
+                    "sat-6": { "grade": "7", "class": "7/1", "title": "Bài 1: Thiết bị vào - ra", "ppct": "1", "teacher": "Nguyễn Thị Thanh Tuyền", "itUsage": true },
+                    "sat-7": { "grade": "7", "class": "7/1", "title": "Bài 1: Thiết bị vào - ra", "ppct": "2", "teacher": "Nguyễn Thị Thanh Tuyền", "itUsage": true }
+                }
+            };
             monthlyPlans = savedPlans ? JSON.parse(savedPlans) : {};
         }
         
@@ -404,17 +445,32 @@
             const [year, month] = planPeriod.split('-');
             const yearNum = parseInt(year), monthNum = parseInt(month);
             const savedPlan = monthlyPlans[planPeriod] || { part1: `- Chuẩn bị phòng máy:\n+ Kiểm tra toàn bộ máy trong phòng bộ môn đảm bảo hoạt động tốt.\n+ Vệ sinh phòng học sạch sẽ để chuẩn bị cho việc dạy học.\n+ Chuẩn bị sổ sách đầy đủ.\n- Báo cáo tình hình sử dụng PHBM về BGH.`, weeks: {} };
-            const firstDayOfMonth = new Date(yearNum, monthNum - 1, 1), lastDayOfMonth = new Date(yearNum, monthNum, 0);
+            
             const weeksInMonth = [];
-            let currentWeekStart = new Date(firstDayOfMonth);
-            if (currentWeekStart.getDay() !== 1) { currentWeekStart.setDate(currentWeekStart.getDate() - (currentWeekStart.getDay() + 6) % 7); }
-            while (currentWeekStart <= lastDayOfMonth) {
-                const weekEnd = new Date(currentWeekStart); weekEnd.setDate(weekEnd.getDate() + 4);
-                weeksInMonth.push({ start: new Date(currentWeekStart), end: new Date(weekEnd) });
-                currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+            let weekIndex = 0;
+            while (true) {
+                const monday = new Date(schoolYearStartDate);
+                monday.setDate(monday.getDate() + weekIndex * 7);
+
+                if (monday.getFullYear() > yearNum || (monday.getFullYear() === yearNum && monday.getMonth() + 1 > monthNum)) {
+                    break; // Stop when we've passed the selected month
+                }
+
+                if (monday.getFullYear() === yearNum && (monday.getMonth() + 1) === monthNum) {
+                    const saturday = new Date(monday);
+                    saturday.setDate(monday.getDate() + 5);
+                    weeksInMonth.push({ start: monday, end: saturday, weekNumber: weekIndex + 1 });
+                }
+                weekIndex++;
+                if (weekIndex > 52 * 2) break; // Safety break
             }
+
             const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
-            const planTableHTML = `<div class="overflow-x-auto my-4"><table id="planDetailTable" class="w-full border-collapse border border-gray-400 text-sm"><thead><tr class="bg-gray-100 font-bold"><th class="border border-gray-400 p-2 text-left">Thời gian</th><th class="border border-gray-400 p-2 text-left">Nội dung công việc</th><th class="border border-gray-400 p-2 text-left">Ghi chú</th></tr></thead><tbody>${weeksInMonth.map((week, index) => { const weekKey = `week_${index}`; const weekData = savedPlan.weeks[weekKey] || { content: `- Dạy học theo TKB\n- Vệ sinh phòng máy sạch sẽ.\n- Bồi dưỡng HSG9`, notes: `- GV PHBM\n- GV bộ môn` }; return `<tr><td class="border border-gray-400 p-2 font-semibold">Tuần ${index + 1}<br>(${formatDate(week.start)} - ${formatDate(week.end)})</td><td class="border border-gray-400 p-2"><textarea data-week="${weekKey}" data-field="content" class="plan-input w-full h-24 border p-1 rounded-md">${weekData.content}</textarea></td><td class="border border-gray-400 p-2"><textarea data-week="${weekKey}" data-field="notes" class="plan-input w-full h-24 border p-1 rounded-md">${weekData.notes}</textarea></td></tr>`; }).join('')}</tbody></table></div>`;
+            const planTableHTML = `<div class="overflow-x-auto my-4"><table id="planDetailTable" class="w-full border-collapse border border-gray-400 text-sm"><thead><tr class="bg-gray-100 font-bold"><th class="border border-gray-400 p-2 text-left">Thời gian</th><th class="border border-gray-400 p-2 text-left">Nội dung công việc</th><th class="border border-gray-400 p-2 text-left">Ghi chú</th></tr></thead><tbody>${weeksInMonth.map((week) => { 
+                const weekKey = `week_${week.weekNumber}`; 
+                const weekData = savedPlan.weeks[weekKey] || { content: `- Dạy học theo TKB\n- Vệ sinh phòng máy sạch sẽ.\n- Bồi dưỡng HSG9`, notes: `- GV PHBM\n- GV bộ môn` }; 
+                return `<tr><td class="border border-gray-400 p-2 font-semibold">Tuần ${week.weekNumber}<br>(${formatDate(week.start)} - ${formatDate(week.end)})</td><td class="border border-gray-400 p-2"><textarea data-week="${weekKey}" data-field="content" class="plan-input w-full h-24 border p-1 rounded-md">${weekData.content}</textarea></td><td class="border border-gray-400 p-2"><textarea data-week="${weekKey}" data-field="notes" class="plan-input w-full h-24 border p-1 rounded-md">${weekData.notes}</textarea></td></tr>`; 
+            }).join('')}</tbody></table></div>`;
             planContent.innerHTML = `<div class="space-y-4 text-sm text-black text-left" style="font-family: 'Times New Roman', Times, serif;"><div class="flex justify-between"><div class="text-center text-xs w-1/2"><p>UBND PHƯỜNG HẢI CHÂU</p><p class="font-bold">TRƯỜNG THCS LÊ THÁNH TÔN</p></div><div class="text-center text-xs w-1/2"><p class="font-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p><p class="font-bold underline">Độc lập – Tự do - Hạnh phúc</p></div></div><div class="text-center pt-4"><h2 class="text-base font-bold">KẾ HOẠCH CÔNG TÁC THÁNG ${month}</h2><h3 class="font-bold">NĂM HỌC: ${yearNum} - ${yearNum + 1}</h3></div><div><h4 class="font-bold">I. Kế hoạch trọng tâm</h4><textarea class="plan-input w-full h-32 border p-2 mt-1 text-sm bg-gray-50 rounded-md" id="planPart1">${savedPlan.part1}</textarea></div><div><h4 class="font-bold">II. Lịch công tác cụ thể</h4>${planTableHTML}</div><div class="flex justify-between pt-8"><div class="text-center w-1/2"><p class="font-bold">P. HIỆU TRƯỞNG</p><br><br><br><br><p class="mt-4 font-bold">Trần Thị Kim Hằng</p></div><div class="text-center w-1/2"><p class="font-bold">NGƯỜI LẬP KẾ HOẠCH</p><br><br><br><br><p class="mt-4 font-bold">Lê Thị Mai Thương</p></div></div></div>`;
             document.querySelectorAll('.plan-input').forEach(input => input.addEventListener('input', savePlanData));
         }
@@ -435,22 +491,33 @@
             const planPeriod = document.getElementById('planPeriod').value;
             const [year, month] = planPeriod.split('-');
             const yearNum = parseInt(year);
+            const monthNum = parseInt(month);
             const savedPlan = monthlyPlans[planPeriod] || { part1: `Chuẩn bị phòng máy:\n+ Kiểm tra toàn bộ máy trong phòng bộ môn đảm bảo hoạt động tốt.\n+ Vệ sinh phòng học sạch sẽ để chuẩn bị cho việc dạy học.\n+ Chuẩn bị sổ sách đầy đủ.\n- Báo cáo tình hình sử dụng PHBM về BGH.`, weeks: {} };
             const part1Content = formatContentAsParagraphs(savedPlan.part1);
-            const firstDayOfMonth = new Date(yearNum, parseInt(month) - 1, 1), lastDayOfMonth = new Date(yearNum, parseInt(month), 0);
+            
             const weeksInMonth = [];
-            let currentWeekStart = new Date(firstDayOfMonth);
-            if (currentWeekStart.getDay() !== 1) { currentWeekStart.setDate(currentWeekStart.getDate() - (currentWeekStart.getDay() + 6) % 7); }
-             while (currentWeekStart <= lastDayOfMonth) {
-                const weekEnd = new Date(currentWeekStart); weekEnd.setDate(weekEnd.getDate() + 4);
-                weeksInMonth.push({ start: new Date(currentWeekStart), end: new Date(weekEnd) });
-                currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+            let weekIndex = 0;
+            while (true) {
+                const monday = new Date(schoolYearStartDate);
+                monday.setDate(monday.getDate() + weekIndex * 7);
+
+                if (monday.getFullYear() > yearNum || (monday.getFullYear() === yearNum && monday.getMonth() + 1 > monthNum)) {
+                    break;
+                }
+
+                if (monday.getFullYear() === yearNum && (monday.getMonth() + 1) === monthNum) {
+                    const saturday = new Date(monday);
+                    saturday.setDate(monday.getDate() + 5);
+                    weeksInMonth.push({ start: monday, end: saturday, weekNumber: weekIndex + 1 });
+                }
+                weekIndex++;
+                if (weekIndex > 52 * 2) break;
             }
             const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
-            const tableRows = weeksInMonth.map((week, index) => {
-                 const weekKey = `week_${index}`;
+            const tableRows = weeksInMonth.map((week) => {
+                 const weekKey = `week_${week.weekNumber}`;
                  const weekData = savedPlan.weeks[weekKey] || { content: `- Dạy học theo TKB\n- Vệ sinh phòng máy sạch sẽ.\n- Bồi dưỡng HSG9`, notes: `- GV PHBM\n- GV bộ môn` };
-                 const timeCell = `Tuần ${index + 1} (${formatDate(week.start)} - ${formatDate(week.end)})`;
+                 const timeCell = `Tuần ${week.weekNumber} (${formatDate(week.start)} - ${formatDate(week.end)})`;
                  return `<tr><td style="border: 1px solid black; padding: 5px; vertical-align: top;">${timeCell}</td><td style="border: 1px solid black; padding: 5px;">${formatContentAsParagraphs(weekData.content || '')}</td><td style="border: 1px solid black; padding: 5px;">${formatContentAsParagraphs(weekData.notes || '')}</td></tr>`;
             }).join('');
             const tableHTML = `<table style="width:100%; border-collapse: collapse; border: 1px solid black; font-family: 'Times New Roman', Times, serif; font-size: 13pt;"><thead><tr style="font-weight: bold; text-align: center;"><th style="border: 1px solid black; padding: 5px;">Thời gian</th><th style="border: 1px solid black; padding: 5px;">Nội dung công việc</th><th style="border: 1px solid black; padding: 5px;">Ghi chú</th></tr></thead><tbody>${tableRows}</tbody></table>`;
@@ -489,22 +556,36 @@
             const reportPeriod = document.getElementById('reportPeriod').value;
             const reportContent = document.getElementById('reportContent');
             const [year, month] = reportPeriod.split('-');
-            const today = new Date();
+            const yearNum = parseInt(year);
+            const monthNum = parseInt(month);
+            
+            let reportDate = new Date(yearNum, monthNum, 0); // Last day of the selected month
+            while (reportDate.getDay() === 0 || reportDate.getDay() === 6) { // 0 is Sunday, 6 is Saturday
+                reportDate.setDate(reportDate.getDate() - 1);
+            }
+
             const { reportData, totalLessons } = collectReportData(year, month);
             const reportTableHTML = reportData.length > 0 ? `<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-400 text-sm"><thead><tr class="bg-gray-100 font-bold"><th class="border border-gray-400 p-2 text-center">Stt</th><th class="border border-gray-400 p-2 text-left">Họ và tên</th><th class="border border-gray-400 p-2 text-left">Các lớp dạy tại phòng máy</th></tr></thead><tbody>${reportData.map((teacher, index) => `<tr><td class="border border-gray-400 p-2 text-center">${index + 1}</td><td class="border border-gray-400 p-2">${teacher.teacher}</td><td class="border border-gray-400 p-2">${teacher.classes.join(', ')}</td></tr>`).join('')}</tbody></table></div>` : `<div class="text-center my-4 p-4 border rounded-lg bg-gray-50"><p class="text-gray-600">Chưa có dữ liệu sử dụng trong tháng ${month}/${year}.</p></div>`;
-            reportContent.innerHTML = `<div class="space-y-4 text-sm text-black text-left" style="font-family: 'Times New Roman', Times, serif;"><div class="flex justify-between"><div class="text-center text-xs w-1/2"><p>UBND PHƯỜNG HẢI CHÂU</p><p class="font-bold">TRƯỜNG THCS LÊ THÁNH TÔN</p><p class="font-bold underline">TỔ TOÁN - TIN</p></div><div class="text-center text-xs w-1/2"><p class="font-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p><p class="font-bold underline">Độc lập – Tự do - Hạnh phúc</p></div></div><div class="text-right text-xs italic"><p>Đà Nẵng, ngày ${today.getDate()} tháng ${today.getMonth() + 1} năm ${today.getFullYear()}</p></div><div class="text-center pt-4"><h2 class="text-base font-bold">BÁO CÁO</h2><h3 class="font-bold">Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year}</h3></div><p class="text-justify">Tổ Toán - Tin báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month} năm ${year} như sau:</p><div><h4 class="font-bold">1. Việc triển khai thực hiện kế hoạch tháng:</h4><textarea class="w-full h-48 border p-2 mt-1 text-sm bg-gray-50 rounded-md" id="reportPart1">Giáo viên phụ trách phòng bộ môn tiến hành kiểm tra toàn bộ máy trong phòng bộ môn để đảm bảo hoạt động tốt cho việc dạy học.\nTiến hành dọn vệ sinh phòng bộ môn và các thiết bị dạy học sạch sẽ.\nKiểm tra các thiết bị dạy học theo danh mục đồ dùng dạy học tối thiểu của nhà trường.\nCập nhật các thông tin của sổ theo dõi, lịch đăng ký sử dụng phòng máy.\nChuẩn bị phòng máy, thiết bị dạy học (ĐDDH) theo kế hoạch và lịch đăng ký trong từng tuần.\nPhối hợp cùng với học sinh giữ gìn vệ sinh chung phòng học bộ môn.\nLên kế hoạch và báo cáo kịp thời các hoạt động của phòng bộ môn.</textarea></div><div><h4 class="font-bold">2. Thống kê tình hình dạy học tại phòng bộ môn:</h4><p>Tổng số tiết dạy tại phòng máy trong tháng: <b>${totalLessons} tiết.</b></p><p class="font-bold mt-2">Bảng thống kê chi tiết:</p>${reportTableHTML}</div><div><h4 class="font-bold">3. Nhận xét:</h4><textarea class="w-full h-24 border p-2 mt-1 text-sm bg-gray-50 rounded-md" id="reportPart3">Ưu điểm: Các giáo viên tích cực sử dụng phòng bộ môn để tổ chức các giờ học thực hành và bồi dưỡng, đảm bảo hiệu quả và chất lượng giảng dạy.\nTồn tại: Một số máy tính cấu hình yếu hoặc phát sinh lỗi trong quá trình sử dụng, cần được kiểm tra và đề xuất phương án sửa chữa, nâng cấp.</textarea></div><p>Trên đây là Báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year} của Tổ Toán - Tin.</p><div class="flex justify-between pt-8"><div class="text-center w-1/2"><p class="font-bold">PHÓ HIỆU TRƯỞNG</p><br><br><br><br><p class="mt-4 font-bold">Trần Thị Kim Hằng</p></div><div class="text-center w-1/2"><p class="font-bold">NGƯỜI BÁO CÁO</p><br><br><br><br><p class="mt-4 font-bold">Lê Thị Mai Thương</p></div></div><div class="flex justify-center pt-6 no-print"><button id="exportWordBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center space-x-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg><span>Xuất File Word</span></button></div></div>`;
+            reportContent.innerHTML = `<div class="space-y-4 text-sm text-black text-left" style="font-family: 'Times New Roman', Times, serif;"><div class="flex justify-between"><div class="text-center text-xs w-1/2"><p>UBND PHƯỜNG HẢI CHÂU</p><p class="font-bold">TRƯỜNG THCS LÊ THÁNH TÔN</p><p class="font-bold underline">TỔ TOÁN - TIN</p></div><div class="text-center text-xs w-1/2"><p class="font-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p><p class="font-bold underline">Độc lập – Tự do - Hạnh phúc</p></div></div><div class="text-right text-xs italic"><p>Đà Nẵng, ngày ${reportDate.getDate()} tháng ${reportDate.getMonth() + 1} năm ${reportDate.getFullYear()}</p></div><div class="text-center pt-4"><h2 class="text-base font-bold">BÁO CÁO</h2><h3 class="font-bold">Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year}</h3></div><p class="text-justify">Tổ Toán - Tin báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month} năm ${year} như sau:</p><div><h4 class="font-bold">1. Việc triển khai thực hiện kế hoạch tháng:</h4><textarea class="w-full h-48 border p-2 mt-1 text-sm bg-gray-50 rounded-md" id="reportPart1">Giáo viên phụ trách phòng bộ môn tiến hành kiểm tra toàn bộ máy trong phòng bộ môn để đảm bảo hoạt động tốt cho việc dạy học.\nTiến hành dọn vệ sinh phòng bộ môn và các thiết bị dạy học sạch sẽ.\nKiểm tra các thiết bị dạy học theo danh mục đồ dùng dạy học tối thiểu của nhà trường.\nCập nhật các thông tin của sổ theo dõi, lịch đăng ký sử dụng phòng máy.\nChuẩn bị phòng máy, thiết bị dạy học (ĐDDH) theo kế hoạch và lịch đăng ký trong từng tuần.\nPhối hợp cùng với học sinh giữ gìn vệ sinh chung phòng học bộ môn.\nLên kế hoạch và báo cáo kịp thời các hoạt động của phòng bộ môn.</textarea></div><div><h4 class="font-bold">2. Thống kê tình hình dạy học tại phòng bộ môn:</h4><p>Tổng số tiết dạy tại phòng máy trong tháng: <b>${totalLessons} tiết.</b></p><p class="font-bold mt-2">Bảng thống kê chi tiết:</p>${reportTableHTML}</div><div><h4 class="font-bold">3. Nhận xét:</h4><textarea class="w-full h-24 border p-2 mt-1 text-sm bg-gray-50 rounded-md" id="reportPart3">Ưu điểm: Các giáo viên tích cực sử dụng phòng bộ môn để tổ chức các giờ học thực hành và bồi dưỡng, đảm bảo hiệu quả và chất lượng giảng dạy.\nTồn tại: Một số máy tính cấu hình yếu hoặc phát sinh lỗi trong quá trình sử dụng, cần được kiểm tra và đề xuất phương án sửa chữa, nâng cấp.</textarea></div><p>Trên đây là Báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year} của Tổ Toán - Tin.</p><div class="flex justify-between pt-8"><div class="text-center w-1/2"><p class="font-bold">PHÓ HIỆU TRƯỞNG</p><br><br><br><br><p class="mt-4 font-bold">Trần Thị Kim Hằng</p></div><div class="text-center w-1/2"><p class="font-bold">NGƯỜI BÁO CÁO</p><br><br><br><br><p class="mt-4 font-bold">Lê Thị Mai Thương</p></div></div><div class="flex justify-center pt-6 no-print"><button id="exportWordBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center space-x-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg><span>Xuất File Word</span></button></div></div>`;
             document.getElementById('exportWordBtn').addEventListener('click', exportReportToWord);
         }
         
         function exportReportToWord() {
             const reportPeriod = document.getElementById('reportPeriod').value;
             const [year, month] = reportPeriod.split('-');
-            const today = new Date();
+            const yearNum = parseInt(year);
+            const monthNum = parseInt(month);
+
+            let reportDate = new Date(yearNum, monthNum, 0); // Last day of the selected month
+            while (reportDate.getDay() === 0 || reportDate.getDay() === 6) { // 0 is Sunday, 6 is Saturday
+                reportDate.setDate(reportDate.getDate() - 1);
+            }
+
             const { reportData, totalLessons } = collectReportData(year, month);
             const part1Content = formatContentWithBulletsForReport(document.getElementById('reportPart1').value);
             const part3Content = formatContentWithBulletsForReport(document.getElementById('reportPart3').value);
             const tableHTML = reportData.length > 0 ? `<table style="width:100%; border-collapse: collapse; border: 1px solid black; font-family: 'Times New Roman', Times, serif; font-size: 13pt;"><thead><tr style="font-weight: bold; text-align: center;"><th style="border: 1px solid black; padding: 5px;">Stt</th><th style="border: 1px solid black; padding: 5px;">Họ và tên</th><th style="border: 1px solid black; padding: 5px;">Các lớp dạy tại phòng máy</th></tr></thead><tbody>${reportData.map((teacher, index) => `<tr><td style="border: 1px solid black; padding: 5px; text-align: center;">${index + 1}</td><td style="border: 1px solid black; padding: 5px;">${teacher.teacher}</td><td style="border: 1px solid black; padding: 5px;">${teacher.classes.join(', ')}</td></tr>`).join('')}</tbody></table>` : `<p>Chưa có dữ liệu sử dụng trong tháng ${month}/${year}.</p>`;
-            const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body, table, p, li { font-family: 'Times New Roman', Times, serif; font-size: 13pt; } p, li { line-height: 1.5; text-align: justify; } ul { margin: 0; padding-left: 40px; list-style-position: inside; }</style></head><body><table style="width: 100%; border: none; font-size: 13pt;"><tr><td style="text-align: center; width: 50%;"><p style="margin: 0; text-align: center;">UBND PHƯỜNG HẢI CHÂU</p><p style="margin: 0; font-weight: bold; text-align: center;">TRƯỜNG THCS LÊ THÁNH TÔN</p><p style="margin: 0; font-weight: bold; text-decoration: underline; text-align: center;">TỔ TOÁN - TIN</p></td><td style="text-align: center; width: 50%;"><p style="margin: 0; font-weight: bold; text-align: center;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p><p style="margin: 0; font-weight: bold; text-decoration: underline; text-align: center;">Độc lập – Tự do - Hạnh phúc</p></td></tr></table><p style="text-align: right; font-style: italic; font-size: 13pt;">Đà Nẵng, ngày ${today.getDate()} tháng ${today.getMonth() + 1} năm ${today.getFullYear()}</p><br><h2 style="text-align: center; font-weight: bold; font-size: 14pt;">BÁO CÁO</h2><h3 style="text-align: center; font-weight: bold; font-size: 13pt;">Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year}</h3><p style="text-indent: 40px;">Tổ Toán - Tin báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month} năm ${year} như sau:</p><p><b>1. Việc triển khai thực hiện kế hoạch tháng:</b></p><div>${part1Content}</div><p><b>2. Thống kê tình hình dạy học tại phòng bộ môn:</b></p><p>Tổng số tiết dạy tại phòng máy trong tháng: <b>${totalLessons} tiết.</b></p><p><b>Bảng thống kê chi tiết:</b></p>${tableHTML}<p><b>3. Nhận xét:</b></p><div>${part3Content}</div><p>Trên đây là Báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year} của Tổ Toán - Tin.</p><br><br><table style="width: 100%; border: none;"><tr><td style="text-align: center; width: 50%;"><p style="margin: 0; font-weight: bold; text-align: center;">PHÓ HIỆU TRƯỞNG</p><br><br><br><br><p style="margin: 0; font-weight: bold; text-align: center;">Trần Thị Kim Hằng</p></td><td style="text-align: center; width: 50%;"><p style="margin: 0; font-weight: bold; text-align: center;">NGƯỜI BÁO CÁO</p><br><br><br><br><p style="margin: 0; font-weight: bold; text-align: center;">Lê Thị Mai Thương</p></td></tr></table></body></html>`;
+            const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body, table, p, li { font-family: 'Times New Roman', Times, serif; font-size: 13pt; } p, li { line-height: 1.5; text-align: justify; } ul { margin: 0; padding-left: 40px; list-style-position: inside; }</style></head><body><table style="width: 100%; border: none; font-size: 13pt;"><tr><td style="text-align: center; width: 50%;"><p style="margin: 0; text-align: center;">UBND PHƯỜNG HẢI CHÂU</p><p style="margin: 0; font-weight: bold; text-align: center;">TRƯỜNG THCS LÊ THÁNH TÔN</p><p style="margin: 0; font-weight: bold; text-decoration: underline; text-align: center;">TỔ TOÁN - TIN</p></td><td style="text-align: center; width: 50%;"><p style="margin: 0; font-weight: bold; text-align: center;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p><p style="margin: 0; font-weight: bold; text-decoration: underline; text-align: center;">Độc lập – Tự do - Hạnh phúc</p></td></tr></table><p style="text-align: right; font-style: italic; font-size: 13pt;">Đà Nẵng, ngày ${reportDate.getDate()} tháng ${reportDate.getMonth() + 1} năm ${reportDate.getFullYear()}</p><br><h2 style="text-align: center; font-weight: bold; font-size: 14pt;">BÁO CÁO</h2><h3 style="text-align: center; font-weight: bold; font-size: 13pt;">Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year}</h3><p style="text-indent: 40px;">Tổ Toán - Tin báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month} năm ${year} như sau:</p><p><b>1. Việc triển khai thực hiện kế hoạch tháng:</b></p><div>${part1Content}</div><p><b>2. Thống kê tình hình dạy học tại phòng bộ môn:</b></p><p>Tổng số tiết dạy tại phòng máy trong tháng: <b>${totalLessons} tiết.</b></p><p><b>Bảng thống kê chi tiết:</b></p>${tableHTML}<p><b>3. Nhận xét:</b></p><div>${part3Content}</div><p>Trên đây là Báo cáo Tình hình hoạt động phòng bộ môn Tin học tháng ${month}/${year} của Tổ Toán - Tin.</p><br><br><table style="width: 100%; border: none;"><tr><td style="text-align: center; width: 50%;"><p style="margin: 0; font-weight: bold; text-align: center;">PHÓ HIỆU TRƯỞNG</p><br><br><br><br><p style="margin: 0; font-weight: bold; text-align: center;">Trần Thị Kim Hằng</p></td><td style="text-align: center; width: 50%;"><p style="margin: 0; font-weight: bold; text-align: center;">NGƯỜI BÁO CÁO</p><br><br><br><br><p style="margin: 0; font-weight: bold; text-align: center;">Lê Thị Mai Thương</p></td></tr></table></body></html>`;
             saveAs(htmlDocx.asBlob(fullHtml), `Bao-cao-thang-${month}-${year}.docx`);
         }
         
@@ -533,4 +614,5 @@
     </script>
 </body>
 </html>
+
 
